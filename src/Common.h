@@ -7,6 +7,7 @@
 #include <memory>
 #include <ostream>
 #include <random>
+#include <type_traits>
 
 using std::make_shared;
 using std::shared_ptr;
@@ -32,7 +33,7 @@ inline double RandomDouble(double min, double max)
 
 inline double RandomDoubleGenerator()
 {
-    static std::uniform_int_distribution<double> distribution(.0, 1.);
+    static std::uniform_int_distribution<> distribution(.0, 1.);
     static std::mt19937 generator;
     return distribution(generator);
 }
